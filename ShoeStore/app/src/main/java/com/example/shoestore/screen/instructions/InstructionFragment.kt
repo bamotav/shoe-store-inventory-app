@@ -31,7 +31,7 @@ class InstructionFragment(val screenItem: ScreenItem) : Fragment() {
         binding.instructorViewModel = viewModel
         binding.lifecycleOwner = this
 
-       // viewModel.screenItem.value?.let { binding.introImage.setImageResource(it.screenImg) }
+        viewModel.screenItem.value?.let { binding.introImage.setImageResource(it.screenImg) }
 
         //Hide toolbar when the app is in the Welcome, instruction page
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
