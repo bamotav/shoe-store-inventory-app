@@ -5,16 +5,30 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
 
     private val _userName =  MutableLiveData<String>()
     val userName : LiveData<String>
         get() = _userName
 
+    private val _password = MutableLiveData<String>()
+    val password : LiveData<String>
+        get() = _password
 
-    fun onSetName(){
-        _userName.value = "Brayan Mota"
-        _userName.postValue("brayan mota")
+    private val _eventLogin = MutableLiveData<Boolean>()
+    val eventlogin : LiveData<Boolean>
+        get() = _eventLogin
+
+    init {
+        _eventLogin.value = false
     }
+
+
+    fun onClickLogin() {
+
+        _eventLogin.value = true
+    }
+
+
 
 }

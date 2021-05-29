@@ -30,77 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/buttonGoogle"
-            style="@style/SocialButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:fontFamily="@font/roboto"
-            android:text="@string/login_text_google_account"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titlelogin" />
-
-        <Button
-            android:id="@+id/buttonFacebook"
-            style="@style/SocialButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:fontFamily="@font/roboto"
-            android:text="@string/text_button_facebook"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonGoogle" />
-
-
-        <View
-            android:id="@+id/line_rigth"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/gray_text_color"
-            app:layout_constraintEnd_toStartOf="@+id/textOr"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook" />
-
-        <TextView
-            android:id="@+id/textOr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Or"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook" />
-
-        <View
-            android:id="@+id/line_left"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@color/gray_text_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textOr"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -115,11 +44,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:text="UserName"
+            android:layout_marginTop="50dp"
+            android:text="@string/textUsername"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textOr" />
+            app:layout_constraintTop_toBottomOf="@+id/titlelogin" />
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -145,7 +74,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="15dp"
-            android:text="Password"
+            android:text="@string/textViewPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
@@ -195,7 +124,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/btnLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -203,33 +132,12 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
-            android:text="Login"
-            android:onClick="@{()-> loginViewModel.onSetName() }"
+            android:text="@string/button_login"
+            android:onClick="@{()->loginViewModel.onClickLogin()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Don't have an account ?"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.422"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:text="Sign Up"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-            app:layout_constraintStart_toEndOf="@+id/textView6" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

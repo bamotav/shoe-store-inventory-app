@@ -9,7 +9,9 @@ import androidx.databinding.DataBindingUtil
 import com.example.shoestore.R
 import com.example.shoestore.databinding.LoginFragmentBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 class LoginFragment : Fragment() {
 
@@ -25,6 +27,12 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.loginViewModel = viewModel
         binding.lifecycleOwner = this
+
+        viewModel.eventlogin.observe(viewLifecycleOwner, Observer {
+            if (it){
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+            }
+        })
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
