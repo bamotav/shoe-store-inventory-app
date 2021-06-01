@@ -16,6 +16,7 @@ import com.example.shoestore.R
 import com.example.shoestore.databinding.WelcomeFragmentBinding
 import com.example.shoestore.screen.instructions.InstructionFragment
 import com.example.shoestore.screen.instructions.ScreenItem
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import java.time.Duration
 
@@ -23,13 +24,14 @@ class WelcomeFragment : Fragment() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var viewModel: WelcomeViewModel
+    private  lateinit var binding : WelcomeFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding : WelcomeFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.welcome_fragment, container, false)
+        binding  = DataBindingUtil.inflate(inflater, R.layout.welcome_fragment, container, false)
 
         val titleLorem = getString(R.string.titleLorem)
         val descriptionLorem = getString(R.string.descriptionLorem)
@@ -72,12 +74,30 @@ class WelcomeFragment : Fragment() {
 
                 if (viewPager.currentItem == viewModel.screenItems.value!!.size - 1){
 
-                    binding.btnGetStarted.visibility = View.VISIBLE
-                    binding.tablayoutpager.visibility = View.INVISIBLE
-                    binding.btnNext.visibility = View.INVISIBLE
+                    loadLastScreen()
 
                 }
             }
+        })
+
+        binding.tablayoutpager.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                if (viewPager.currentItem == viewModel.screenItems.value!!.size - 1){
+
+                    loadLastScreen()
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
         })
 
         //viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
@@ -86,6 +106,19 @@ class WelcomeFragment : Fragment() {
 
         return binding.root
 
+    }
+
+    fun loadLastScreen(){
+        binding.btnGetStarted.visibility = View.VISIBLE
+        binding.tablayoutpager.visibility = View.INVISIBLE
+        binding.btnNext.visibility = View.INVISIBLE
+        binding.btnGetStarted.let {
+
+            it.alpha = 0f
+            it.translationY = -100f
+
+            it.animate().alpha(1f).translationY(0f).setDuration(1200)
+        }
     }
 
 
