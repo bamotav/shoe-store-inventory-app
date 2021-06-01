@@ -12,8 +12,19 @@ class WelcomeViewModel(private val screenItemData: List<ScreenItem>): ViewModel(
     val screenItems :LiveData<List<ScreenItem>>
     get() = _screeItems
 
+    private val _nextEvent = MutableLiveData<Boolean>()
+
+    val nextEvent: LiveData<Boolean>
+    get() = _nextEvent
+
     init {
         _screeItems.value = screenItemData
+        _nextEvent.value = false
+    }
+
+    fun onClickNext() {
+
+        _nextEvent.value = true
     }
 
 }
