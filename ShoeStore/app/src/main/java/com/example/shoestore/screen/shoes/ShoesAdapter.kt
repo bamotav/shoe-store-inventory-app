@@ -1,7 +1,6 @@
 package com.example.shoestore.screen.shoes
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -9,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoestore.R
 import com.example.shoestore.databinding.CardviewShoesBinding
-import com.example.shoestore.databinding.InstructionFragmentBinding
+import com.example.shoestore.screen.shoes.data.Shoe
 
 class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,ShoesAdapter.ShoesViewHolder>(ShoesDiffCallback) {
 

@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.shoestore.R
-import com.example.shoestore.databinding.InstructionFragmentBinding
 import com.example.shoestore.databinding.ShoesListFragmentBinding
-import com.example.shoestore.screen.instructions.InstructionViewModel
+import com.example.shoestore.screen.shoes.data.Shoe
 
 class ShoesListFragment : Fragment() {
 
@@ -30,10 +29,12 @@ class ShoesListFragment : Fragment() {
 
         binding.recyclerViewShoesList.adapter = shoeAdapter
 
+        //shoeAdapter.submitList()
+
         return binding.root
     }
 
-    private fun adapterOnClick(shoe:Shoe){
+    private fun adapterOnClick(shoe: Shoe){
         //TODO : go to detail
 
     }
