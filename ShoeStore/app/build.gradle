@@ -60,8 +60,8 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.10"
-    implementation "androidx.multidex:multidex:2.0.1"
+//    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.10"
+//    implementation "androidx.multidex:multidex:2.0.1"
 
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.2.0"

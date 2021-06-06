@@ -18,5 +18,13 @@
         android:id="@+id/welcomeFragment"
         android:name="com.example.shoestore.screen.welcome.WelcomeFragment"
         tools:layout="@layout/welcome_fragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_shoesListFragment"
+            app:destination="@id/shoesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoesListFragment"
+        android:name="com.example.shoestore.screen.shoes.ShoesListFragment"
+        android:label="ShoesListFragment" />
 </navigation>

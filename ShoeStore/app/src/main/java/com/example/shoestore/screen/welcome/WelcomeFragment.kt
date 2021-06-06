@@ -10,12 +10,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shoestore.R
 import com.example.shoestore.databinding.WelcomeFragmentBinding
 import com.example.shoestore.screen.instructions.InstructionFragment
 import com.example.shoestore.screen.instructions.ScreenItem
+import com.example.shoestore.screen.login.LoginFragmentDirections
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import java.time.Duration
@@ -73,11 +75,15 @@ class WelcomeFragment : Fragment() {
                 }
 
                 if (viewPager.currentItem == viewModel.screenItems.value!!.size - 1){
-
                     loadLastScreen()
-
                 }
             }
+        })
+
+        viewModel.getStartedEvent.observe(viewLifecycleOwner, {
+             if (it){
+                 findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToShoesListFragment())
+             }
         })
 
         binding.tablayoutpager.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

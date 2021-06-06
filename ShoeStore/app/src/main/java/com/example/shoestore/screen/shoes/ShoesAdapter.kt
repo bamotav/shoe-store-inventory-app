@@ -21,7 +21,6 @@ class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,Shoes
         init {
             itemBinding.root.setOnClickListener{
                 currentShoe?.let(onClick)
-                // currentShoe?.let { onClick(it) }
             }
         }
         fun Bind(shoe: Shoe){
@@ -37,7 +36,7 @@ class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,Shoes
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoesViewHolder {
 
-        val binding: CardviewShoesBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.cardview_shoes, parent, false)
+        val binding: CardviewShoesBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.cardview_shoes, parent, true)
 
         return ShoesViewHolder(binding, onClick)
     }
