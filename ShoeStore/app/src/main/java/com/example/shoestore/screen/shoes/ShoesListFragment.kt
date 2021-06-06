@@ -1,18 +1,15 @@
 package com.example.shoestore.screen.shoes
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.shoestore.R
 import com.example.shoestore.databinding.ShoesListFragmentBinding
-import com.example.shoestore.screen.instructions.InstructionViewModelFactory
 import com.example.shoestore.screen.shoes.data.Shoe
+
 
 class ShoesListFragment : Fragment() {
 
@@ -35,9 +32,8 @@ class ShoesListFragment : Fragment() {
         binding.lifecycleOwner = this
 
         val shoeAdapter = ShoesAdapter(this::adapterOnClick)
-        binding.recyclerViewShoesList.adapter = shoeAdapter
 
-  //      shoeAdapter.submitList(viewModel.shoesLiveData.value as MutableList<Shoe>)
+        binding.recyclerViewShoesList.adapter = shoeAdapter
 
         viewModel.shoesLiveData.observe(viewLifecycleOwner,{
             it?.let {
@@ -45,14 +41,9 @@ class ShoesListFragment : Fragment() {
             }
         })
 
-//        flowersListViewModel.flowersLiveData.observe(this, {
-//            it?.let {
-//                flowersAdapter.submitList(it as MutableList<Flower>)
-//                headerAdapter.updateFlowerCount(it.size)
-//            }
-//        })
+        setHasOptionsMenu(true)
 
-        //shoeAdapter.submitList()
+        (activity as AppCompatActivity?)!!.setSupportActionBar(binding.topAppBar)
 
         return binding.root
     }
@@ -60,6 +51,39 @@ class ShoesListFragment : Fragment() {
     private fun adapterOnClick(shoe: Shoe){
         //TODO : go to detail
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.top_app_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+                R.id.favorite ->{
+                    true
+                }
+
+                R.id.search ->{
+                    true
+                }
+                else -> false
+            }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSystemUI() {
+        val activity = activity as AppCompatActivity?
+        if (activity != null) {
+
+            activity.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+
+            //activity.supportActionBar!!.show()
+
+        }
     }
 
 

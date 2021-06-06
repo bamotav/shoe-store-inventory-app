@@ -108,7 +108,7 @@ class WelcomeFragment : Fragment() {
 
         //viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
 
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        //(activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         return binding.root
 

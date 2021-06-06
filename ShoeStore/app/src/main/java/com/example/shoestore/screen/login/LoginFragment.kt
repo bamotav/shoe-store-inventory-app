@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
             }
         })
 
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+       // (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         return binding.root
 

@@ -26,5 +26,6 @@
     <fragment
         android:id="@+id/shoesListFragment"
         android:name="com.example.shoestore.screen.shoes.ShoesListFragment"
+        tools:layout="@layout/shoes_list_fragment"
         android:label="ShoesListFragment" />
 </navigation>

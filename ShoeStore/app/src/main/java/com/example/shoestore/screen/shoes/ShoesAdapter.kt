@@ -12,17 +12,20 @@ import com.example.shoestore.screen.shoes.data.Shoe
 
 class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,ShoesAdapter.ShoesViewHolder>(ShoesDiffCallback) {
 
-    class ShoesViewHolder(private val itemBinding: CardviewShoesBinding, onClick: (Shoe) -> Unit):
-        RecyclerView.ViewHolder(itemBinding.root)
+    class ShoesViewHolder(
+        private val itemBinding: CardviewShoesBinding,
+        onClick: (Shoe) -> Unit):
+        RecyclerView.ViewHolder(itemBinding.root.rootView)
     {
 
         private var currentShoe: Shoe? = null
 
         init {
-            itemBinding.root.setOnClickListener{
+            itemView.setOnClickListener{
                 currentShoe?.let(onClick)
             }
         }
+
         fun Bind(shoe: Shoe){
             currentShoe = shoe
 
@@ -35,9 +38,7 @@ class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,Shoes
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoesViewHolder {
-
-        val binding: CardviewShoesBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.cardview_shoes, parent, true)
-
+        val binding: CardviewShoesBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.cardview_shoes, parent, false)
         return ShoesViewHolder(binding, onClick)
     }
 
