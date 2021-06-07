@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shoestore.R
 import com.example.shoestore.databinding.ShoesListFragmentBinding
 import com.example.shoestore.screen.shoes.data.Shoe
@@ -33,6 +34,7 @@ class ShoesListFragment : Fragment() {
 
         val shoeAdapter = ShoesAdapter(this::adapterOnClick)
 
+        binding.recyclerViewShoesList.layoutManager = GridLayoutManager(context, 2)
         binding.recyclerViewShoesList.adapter = shoeAdapter
 
         viewModel.shoesLiveData.observe(viewLifecycleOwner,{

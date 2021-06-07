@@ -1,7 +1,13 @@
 package com.example.shoestore.screen.shoes
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -9,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shoestore.R
 import com.example.shoestore.databinding.CardviewShoesBinding
 import com.example.shoestore.screen.shoes.data.Shoe
+
 
 class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,ShoesAdapter.ShoesViewHolder>(ShoesDiffCallback) {
 
@@ -33,6 +40,10 @@ class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,Shoes
             itemBinding.txtViewModel.text = shoe.model
             itemBinding.txtViewPrice.text = shoe.price.toString()
             itemBinding.imgProduct.setImageResource(shoe.shoeImg)
+
+            setButtonTint(itemBinding.btnBuy,ColorStateList.valueOf(Color.parseColor(shoe.colorButton)))
+
+            //itemBinding.btnBuy.backgroundTintList =
         }
 
     }
@@ -58,4 +69,12 @@ object ShoesDiffCallback : DiffUtil.ItemCallback<Shoe>() {
         return oldItem.id == newItem.id
     }
 
+}
+
+fun setButtonTint(button: Button, tint: ColorStateList) {
+    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP && button is AppCompatButton) {
+        button.setBackgroundTintList(tint)
+    } else {
+        ViewCompat.setBackgroundTintList(button, tint)
+    }
 }
