@@ -12,7 +12,8 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_rigth" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -21,7 +22,9 @@
         android:label="WelcomeFragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_shoesListFragment"
-            app:destination="@id/shoesListFragment" />
+            app:destination="@id/shoesListFragment"
+            app:enterAnim="@anim/slide_in_rigth"
+            app:exitAnim="@anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/shoesListFragment"
