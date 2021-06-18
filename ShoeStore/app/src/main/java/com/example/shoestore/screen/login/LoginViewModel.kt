@@ -47,7 +47,7 @@ class LoginViewModel : ViewModel() {
             _eventErrorLogin.value = true
         }
        else {
-            _eventErrorLogin.value = !_userName.value == USER && !_password.value == PASSWORD
+            _eventErrorLogin.value = !(_userName.value == USER && _password.value == PASSWORD)
             _eventLogin.value = _userName.value == USER && _password.value == PASSWORD
         }
 
