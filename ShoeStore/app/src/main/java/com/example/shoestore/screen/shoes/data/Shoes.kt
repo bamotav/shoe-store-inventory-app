@@ -15,19 +15,19 @@ fun shoeList(resources: Resources): List<Shoe> {
         ),
 
         Shoe(2,
-            resources.getString(R.string.shoe1_model),
-            resources.getString(R.string.shoe1_name),
-            resources.getString(R.string.shoe1_description),
+            resources.getString(R.string.shoe2_model),
+            resources.getString(R.string.shoe2_name),
+            resources.getString(R.string.shoe2_description),
             R.drawable.ic_running_shoe,
-            resources.getString(R.string.shoe1_price).toDouble(),
+            resources.getString(R.string.shoe2_price).toDouble(),
             "#FF6167"
         ),
         Shoe(3,
-            resources.getString(R.string.shoe1_model),
-            resources.getString(R.string.shoe1_name),
-            resources.getString(R.string.shoe1_description),
+            resources.getString(R.string.shoe3_model),
+            resources.getString(R.string.shoe3_name),
+            resources.getString(R.string.shoe3_description),
             R.drawable.ic_sneakers,
-            resources.getString(R.string.shoe1_price).toDouble(),
+            resources.getString(R.string.shoe3_price).toDouble(),
             "#FF4D9ADC"
         )
     ,     Shoe(4,

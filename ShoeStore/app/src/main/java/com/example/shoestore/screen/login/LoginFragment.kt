@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.shoestore.R
@@ -34,7 +35,12 @@ class LoginFragment : Fragment() {
             }
         })
 
-       // (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        viewModel.eventErrorLogin.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                Toast.makeText(context, "The user and password is incorrect", Toast.LENGTH_SHORT).show()
+                viewModel.clearEventError()
+            }
+        })
 
         return binding.root
 

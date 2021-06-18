@@ -7,5 +7,7 @@ import com.example.shoestore.screen.shoes.data.DataSource
 import com.example.shoestore.screen.shoes.data.Shoe
 
 class ShoesListViewModel(private val dataSource: DataSource) : ViewModel() {
+
     val shoesLiveData = dataSource.getShoeList()
+
 }

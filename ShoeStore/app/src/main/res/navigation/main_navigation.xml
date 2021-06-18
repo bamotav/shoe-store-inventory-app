@@ -30,5 +30,33 @@
         android:id="@+id/shoesListFragment"
         android:name="com.example.shoestore.screen.shoes.ShoesListFragment"
         tools:layout="@layout/shoes_list_fragment"
-        android:label="ShoesListFragment" />
+        android:label="ShoesListFragment" >
+        <action
+            android:id="@+id/action_shoesListFragment_to_detailShoesFragment"
+            app:destination="@id/detailShoesFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_rigth"
+            app:popUpTo="@id/shoesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailShoesFragment"
+        android:name="com.example.shoestore.screen.shoes.detail.DetailShoesFragment"
+        android:label="detail_shoes_fragment"
+        tools:layout="@layout/detail_shoes_fragment" >
+        <argument
+            android:name="model"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="float" />
+        <argument
+            android:name="image"
+            app:argType="integer" />
+    </fragment>
 </navigation>

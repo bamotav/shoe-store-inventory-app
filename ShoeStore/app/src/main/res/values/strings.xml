@@ -28,9 +28,25 @@
     <string name="shoe1_description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys
         standard dummy text ever since the 1500s.</string>
     <string name="shoe1_price">450.03</string>
+
+    <string name="shoe2_name">Walk 809</string>
+    <string name="shoe2_model">Adidas</string>
+    <string name="shoe2_description">Lorem Ipsum is simply dummy text of tting industry. Lorem Ipsum has been the industrys
+        standard dummy text ever since the 1500s.</string>
+    <string name="shoe2_price">300.03</string>
+
+    <string name="shoe3_name">Fly 809</string>
+    <string name="shoe3_model">Reebok</string>
+    <string name="shoe3_description">Lorem Ipsum is simply dummy text of tting industry. Lorem Ipsum has been the industrys
+        standard dummy text ever since the 1500s.</string>
+    <string name="shoe3_price">1450.03</string>
+
+
+
     <string name="page_title">Shoes App</string>
     <string name="favorite">Favorite</string>
     <string name="content_description_favorite">description favorite</string>
     <string name="search"> Search</string>
     <string name="content_description_search"> Search Description</string>
+    <string name="textCancel">Cancel</string>
 </resources>

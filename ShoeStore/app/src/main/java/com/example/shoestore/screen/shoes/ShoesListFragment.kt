@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shoestore.R
 import com.example.shoestore.databinding.ShoesListFragmentBinding
@@ -16,10 +17,6 @@ class ShoesListFragment : Fragment() {
 
     private lateinit var viewModel: ShoesListViewModel
 
-//    private val shoeViewmodel by viewModels<ShoesListViewModel>(){
-//        context?.let { ShoeListViewModelFactory(it) }!!
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +25,7 @@ class ShoesListFragment : Fragment() {
         val viewModelFactory = ShoeListViewModelFactory(requireContext())
 
         val binding: ShoesListFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.shoes_list_fragment, container, false)
+
         viewModel = ViewModelProvider(this, viewModelFactory).get(ShoesListViewModel::class.java)
 
         binding.lifecycleOwner = this
@@ -51,7 +49,10 @@ class ShoesListFragment : Fragment() {
     }
 
     private fun adapterOnClick(shoe: Shoe){
-        //TODO : go to detail
+
+        view?.findNavController()
+            ?.navigate(ShoesListFragmentDirections
+                .actionShoesListFragmentToDetailShoesFragment(shoe.model, shoe.name, shoe.description, shoe.price.toFloat(), shoe.shoeImg))
 
     }
 

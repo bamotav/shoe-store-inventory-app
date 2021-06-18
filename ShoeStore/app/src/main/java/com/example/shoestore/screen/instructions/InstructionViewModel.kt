@@ -12,7 +12,10 @@ class InstructionViewModel(private val screenItemData: ScreenItem) : ViewModel()
 
     init {
         _screenItem.value = screenItemData
+
     }
+
+
 
 
 

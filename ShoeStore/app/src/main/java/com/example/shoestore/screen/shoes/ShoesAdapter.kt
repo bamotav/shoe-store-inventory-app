@@ -17,7 +17,7 @@ import com.example.shoestore.databinding.CardviewShoesBinding
 import com.example.shoestore.screen.shoes.data.Shoe
 
 
-class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,ShoesAdapter.ShoesViewHolder>(ShoesDiffCallback) {
+class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe, ShoesAdapter.ShoesViewHolder>(ShoesDiffCallback) {
 
     class ShoesViewHolder(
         private val itemBinding: CardviewShoesBinding,
@@ -42,8 +42,6 @@ class ShoesAdapter(private val onClick: (Shoe) -> Unit) : ListAdapter<Shoe,Shoes
             itemBinding.imgProduct.setImageResource(shoe.shoeImg)
 
             setButtonTint(itemBinding.btnBuy,ColorStateList.valueOf(Color.parseColor(shoe.colorButton)))
-
-            //itemBinding.btnBuy.backgroundTintList =
         }
 
     }
